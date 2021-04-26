@@ -34,7 +34,7 @@ class DetalleCargaModel extends Model {
     }
 
     public function getDetalle(){
-        $query = "SELECT car_cantidad, car_fecha, prec_venta, prec_compra, car_cantidad, prov_nombre, prod_nombre, prod_sku, prod_unidades
+        $query = "SELECT car_cantidad, car_fecha, prec_venta, prec_compra, car_cantidad, prov_nombre, prod_nombre, prod_id, prod_sku, prod_unidades
                     FROM $this->table
                      JOIN precios_producto ON car_idPrecios = prec_id
                     JOIN proveedores ON prec_idProveedor = prov_id

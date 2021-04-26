@@ -7,7 +7,7 @@ class DetalleModel extends Model {
     protected $DBGroup = 'default';
     protected $defaultGroup = 'default';
     protected $table = 'detalle_envio';
-    protected $primary = 'env_id';
+    protected $primary = 'det_id';
     protected $allowedFields = ['det_idEnvio', 'det_idContenedor'];
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
@@ -31,6 +31,13 @@ class DetalleModel extends Model {
         $query = "INSERT INTO $this->table (det_idEnvio, det_idContenedor) VALUES(?,?)";
         $resultado= $this->db->query($query,[$this->det_idEnvio,$this->det_idContenedor]);
         return $resultado;
+    }
+
+    public function getDetalle($id){
+        $query =   "SELECT cont_id, cont_cantidad, cont_tamanio FROM $this->table JOIN contenedores ON det_idContenedor = cont_id 
+                    WHERE det_idEnvio =?";
+        $resultado= $this->db->query($query,[$id]);
+        return $resultado->getResult();
     }
 }
 ?>

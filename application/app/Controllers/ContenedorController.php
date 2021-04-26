@@ -71,7 +71,6 @@ class ContenedorController extends BaseController
     public function detalleContenedor(){
 
         $idcontenedor = trim($_REQUEST['id']);
-
         //traer el contenedor
         $this->model->cont_id = $idcontenedor;
         $contenedor = $this->model->getById();

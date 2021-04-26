@@ -26,7 +26,7 @@
                         <td><?php echo $envio->env_fechaEntrega?></td>
                         <td><?php echo $envio->env_fecha?></td>
                         <td><?php echo ($envio->env_estatus == 0 )? 'PENDIENTE': 'ENTREGADO'?></td>
-                        <td><button type="button" class="btn btn-outline-success">Ver detalles</button></td>
+                        <td><a class="btn btn-outline-success" href="<?php echo base_url()?>/application/EnvioController/detalleEnvio?id=<?php echo $envio->env_id?>" role="button">Ver Detalles</a></td>
                     </tr>
                 
                 <?php endforeach;?>

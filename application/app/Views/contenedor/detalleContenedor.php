@@ -48,6 +48,9 @@
                                     <li class="list-group-item">
                                         Cantidad #.<?php echo $detalle->car_cantidad?>
                                     </li>
+                                    <li class="list-group-item">
+                                        <a class="btn btn-primary" href="<?php echo base_url()?>/application/ProductosController/detalleProducto?id=<?php echo $detalle->prod_id?>" role="button">Ver detalles del producto</a>
+                                    </li>
                                 </ul>
                             <?php endforeach;?>
                     </div>

@@ -3,12 +3,14 @@
 namespace App\Controllers;
 use App\Models\envioModel;
 use App\Models\DetalleModel;
+use App\Models\contenedorModel;
 
 class EnvioController extends BaseController
 {
     public function __construct(){
         $this->model = new EnvioModel();
         $this->detalle = new DetalleModel();
+        $this->contenedor = new contenedorModel();
     }
 
 	public function index()
@@ -39,6 +41,7 @@ class EnvioController extends BaseController
         foreach($contenedores as $i){ 
 
            $this->detalle->det_idContenedor = $i->id;
+           $this->contenedor->updateEstado($i->id);
            $this->detalle->add();
         }
 
@@ -46,5 +49,24 @@ class EnvioController extends BaseController
         $respuesta = ['envios'=>$respuesta];
         return view('envio/enviosIndex',$respuesta);
     }
+
+    //detalle de los envios
+    public function detalleEnvio(){
+        $idEnvio = trim($_REQUEST['id']);
+        
+        $this->model->env_id=$idEnvio;
+        $envio = $this->model->getDetalle();
+
+        $this->detalle->det_id = $idEnvio;
+        $detalle = $this->detalle->getDetalle($idEnvio);
+
+        $respuesta = [
+            'envio'=>$envio,
+            'detalles' => $detalle
+        ];
+        $data = ['datos'=> $respuesta];
+		return view('envio/EnviosDetalle',$data);
+    }
+
 }
 ?>

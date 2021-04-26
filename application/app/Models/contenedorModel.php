@@ -44,5 +44,11 @@ class ContenedorModel extends Model {
         return $resultado->getResult();
     }
 
+    public function updateEstado($id){
+        $query = "UPDATE ".$this->table." SET cont_estatus=1 WHERE cont_id=?";
+        $resultado= $this->db->query($query,[$id]);
+        return $resultado;
+    }
+
 }
 ?>

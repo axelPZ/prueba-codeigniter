@@ -23,7 +23,7 @@ class EnvioModel extends Model {
     public function getAll(){
 
         $resultado = $this->db->query("SELECT env_id, usu_nombre, usu_apellido, aero_nombre, env_estatus, env_fechaTentativa, env_fecha, env_fechaEntrega
-                                        FROM envios
+                                        FROM $this->table
                                         JOIN usuarios ON env_idUsuario = usu_id
                                         JOIN aeropuertos ON env_idAeropuerto = aero_id");
         return $resultado->getResult();
@@ -38,6 +38,16 @@ class EnvioModel extends Model {
         $query = "INSERT INTO $this->table (env_idAeropuerto, env_idUsuario, env_fechaTentativa, env_fechaEntrega, env_fecha) VALUES(?,?,?,?,?)";
         $resultado= $this->db->query($query,[$this->env_idAeropuerto,$this->env_idUsuario,$this->env_fechaTentativa,$this->env_fechaEntrega,$this->env_fecha]);
        return $resultado;
+    }
+
+    public function getDetalle(){
+        $query="SELECT env_id, usu_nombre, usu_apellido, aero_nombre, env_estatus, env_fechaTentativa, env_fecha, env_fechaEntrega
+                                        FROM $this->table
+                                        JOIN usuarios ON env_idUsuario = usu_id
+                                        JOIN aeropuertos ON env_idAeropuerto = aero_id
+                                        WHERE env_id =?";
+        $resultado= $this->db->query($query,[$this->env_id]);
+        return $resultado->getResult();
     }
 }
 ?>
