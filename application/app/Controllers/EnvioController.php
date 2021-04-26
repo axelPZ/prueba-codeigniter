@@ -23,7 +23,7 @@ class EnvioController extends BaseController
         $fechaTentativa = trim($_POST['fechaTentativa']);
         $idPuerto = trim($_POST['idPuerto']);
         $idUsuario = trim(session()->id);
-        $fechaEnvio = date("m/d/Y");
+        $fechaEnvio = date("Y-m-d");
 
         $this->model->env_idAeropuerto = $idPuerto;
         $this->model->env_idUsuario = $idUsuario;

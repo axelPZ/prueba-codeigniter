@@ -25,7 +25,8 @@
                         <td><?php echo $envio->env_fechaTentativa?></td>
                         <td><?php echo $envio->env_fechaEntrega?></td>
                         <td><?php echo $envio->env_fecha?></td>
-                        <td><?php echo ($envio->env_estatus == 0 )? 'ENCAMINO': 'ENTREGADO'?></td>
+                        <td><?php echo ($envio->env_estatus == 0 )? 'PENDIENTE': 'ENTREGADO'?></td>
+                        <td><button type="button" class="btn btn-outline-success">Ver detalles</button></td>
                     </tr>
                 
                 <?php endforeach;?>

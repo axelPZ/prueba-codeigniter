@@ -2,7 +2,7 @@
 <?php echo view('cabecera/cabecera');?>
 <script>
     $( function() {
-    $( "#datepicker" ).datepicker();
+        $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' });
   } );
   </script>
 <div class="container-fluid">
