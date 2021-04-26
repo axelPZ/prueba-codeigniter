@@ -1,0 +1,79 @@
+
+/*estilos globales*/
+*{
+    margin: 0;
+    padding-top: 0;
+}
+*:focus
+{
+  outline: none;
+}
+
+html
+{
+    box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6,p
+{
+    margin:0;
+    padding:0;
+}
+
+h1,h2,h3
+{
+    font-family: 'Noto Serif', serif;
+}
+h4,h5,h6
+{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+p
+{
+    font-family: 'Orelega One', cursive;
+}
+
+/*login-email*/
+.login{
+    background-image: url('../img/systema/hero.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+}
+
+/*productos */
+
+/*contenedor*/
+.contenedor {
+    position: relative;
+}
+
+.contenedor svg{
+    cursor: pointer;
+}
+
+.listado-contenedor{
+    position: absolute;
+    left: 13rem;
+    top: 100%;
+    padding: 2rem;
+
+    z-index: 100;
+    background-color:white;
+    border-radius: 1rem;
+    min-width: 600px;
+    min-height: 300px;
+    max-height: 300px;
+    overflow: scroll;
+}
+
+/*btn-borrar*/
+.btn-borrarProducto 
+{
+    background-color: red;
+    color: white;
+    padding: .2rem .5rem;
+    text-decoration: none;
+}
