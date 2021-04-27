@@ -119,24 +119,10 @@ class UsuarioController extends BaseController
 		}
 
 	}
+	public function cerrarSession(){
 
-
-
-
-
-
-
-	public function index(){
-
-		//$this->load->model('usuario');
-		
-		$usuario = new usuarioModel();
-
-		$infoUsuario = ['usuarios'=>$usuario->getAll()];
-		//var_dump($usuario->getAll());
-
-		return view('usuario/indexUser',$infoUsuario);		
-		
+		session_destroy();
+		return redirect()->to(base_url().'/');
 	}
 	
 

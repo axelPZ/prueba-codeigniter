@@ -68,5 +68,14 @@ class EnvioController extends BaseController
 		return view('envio/EnviosDetalle',$data);
     }
 
+    public function updateEnvio(){
+
+        $idEnvio = $_REQUEST['id'];
+        $this->model->updateEstado($idEnvio);
+        
+        $respuesta = $this->model->getAll();
+        $respuesta = ['envios'=>$respuesta];
+        return view('envio/enviosIndex',$respuesta);
+    }
 }
 ?>

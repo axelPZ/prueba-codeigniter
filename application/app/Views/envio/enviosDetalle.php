@@ -17,7 +17,7 @@
                             <p class="card-text"><small class="text-muted">Fecha Entrega: <?php echo ($envio->env_estatus == 0 )? 'NO ENTREGADO': $envio->env_fechaEntrega?></small></p>
 
                             <?php if($datos['envio']->env_estatus == 0):?>
-                                <a class="btn btn-primary" href="#" role="button">Marcar como recibido</a>
+                                <a class="btn btn-primary" href="<?php echo base_url()?>/application/EnvioController/updateEnvio?id=<?php echo $datos['envio'][0]->env_id?>" role="button">Marcar como recibido</a>
                             <?php endif ?>
                             
                         </div>

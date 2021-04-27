@@ -49,5 +49,11 @@ class EnvioModel extends Model {
         $resultado= $this->db->query($query,[$this->env_id]);
         return $resultado->getResult();
     }
+
+    public function updateEstado($id){
+        $query = "UPDATE ".$this->table." SET env_estatus=1 WHERE env_id=?";
+        $resultado= $this->db->query($query,[$id]);
+        return $resultado;
+    }
 }
 ?>
