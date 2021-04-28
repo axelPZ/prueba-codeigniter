@@ -11,12 +11,12 @@
                             <p class="card-text"><small class="text-muted">Usuario: <?php echo $datos['envio'][0]->usu_nombre ." ".$datos['envio'][0]->usu_apellido?></small></p>
                             <p class="card-text"><small class="text-muted">Puerto: <?php echo $datos['envio'][0]->aero_nombre?></small></p>
 
-                            <p class="card-text"><small class="text-muted">Estado: <?php echo ($envio->env_estatus == 0 )? 'PENDIENTE': 'ENTREGADO'?></small></p>
+                            <p class="card-text"><small class="text-muted">Estado: <?php echo ($datos['envio'][0]->env_estatus === '0' )? 'PENDIENTE': 'ENTREGADO'?></small></p>
                             <p class="card-text"><small class="text-muted">fecha Tentativa <?php echo $datos['envio'][0]->env_fechaTentativa?></small></p>
                             <p class="card-text"><small class="text-muted">fecha Salida <?php echo $datos['envio'][0]->env_fecha?></small></p>
-                            <p class="card-text"><small class="text-muted">Fecha Entrega: <?php echo ($envio->env_estatus == 0 )? 'NO ENTREGADO': $envio->env_fechaEntrega?></small></p>
+                            <p class="card-text"><small class="text-muted">Fecha Entrega: <span class='text-danger'><b><?php echo ($datos['envio'][0]->env_estatus === '0' )? 'NO ENTREGADO' : $datos['envio'][0]->env_fechaEntrega?></b></span></small></p>
 
-                            <?php if($datos['envio']->env_estatus == 0):?>
+                            <?php if($datos['envio'][0]->env_estatus === '0'):?>
                                 <a class="btn btn-primary" href="<?php echo base_url()?>/application/EnvioController/updateEnvio?id=<?php echo $datos['envio'][0]->env_id?>" role="button">Marcar como recibido</a>
                             <?php endif ?>
                             

@@ -5,7 +5,7 @@
             <div class="col-9 d-flex justify-content-center my-4 ">  
                 <div class="imgDetalleProducto shadow" style="width: 55rem;">
                     <div class="card mb-3">
-                        <img  src="<?php echo base_url().'/application/public/img/default/contenedor.jpg'?>" class="rounded mx-auto d-block" alt="...">
+                        <img  src="<?php echo base_url().'/application/public/img/default/contenedor.jpg'?>" class=" img-fluid rounded mx-auto d-block" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Cantidad <?php echo $datos['contenedor'][0]->cont_cantidad?></h5>
                             <p class="card-text"><small class="text-muted">Contenedor No.: <?php echo $datos['contenedor'][0]->cont_id?></small></p>

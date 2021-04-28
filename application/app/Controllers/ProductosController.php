@@ -5,23 +5,25 @@ use App\Models\productoModel;
 
 class ProductosController extends BaseController
 {
-    public function __construct()
-    {
-        $this->model= new ProductoModel();
-    }
+    // public function __construct()
+    // {
+    //     $this->model= new ProductoModel();
+    // }
 	public function indexProducto()
 	{
-        $respuesta = $this->model->getAll();
+        $model = new ProductoModel();
+        $respuesta = $model->getAll();
         $respuesta = ['productos'=>$respuesta];
 		return view('producto/indexProducto',$respuesta);
 	}
 
     public function detalleProducto(){
+        $model = new ProductoModel();
         
         $id = trim($_REQUEST['id']);
         
-        $producto = $this->model->getId($id);
-        $detalles = $this->model->detalleProducto($id);
+        $producto = $model->getId($id);
+        $detalles = $model->detalleProducto($id);
 
         $data = ([
 

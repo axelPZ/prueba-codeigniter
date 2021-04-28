@@ -30,25 +30,24 @@ class Database extends Config
 	 *
 	 * @var array
 	 */
-	//mysql://b21064d121d370:a02c62cd@us-cdbr-east-03.cleardb.com/heroku_71f670db12e7bcc?reconnect=true
-	public $default = [
+	 public $default = [
 		'DSN'      => '',
-		'hostname' => 'us-cdbr-east-03.cleardb.com',
-		'username' => 'b21064d121d370',
-		'password' => 'a02c62cd',
-		'database' => 'heroku_71f670db12e7bcc',
-		'DBDriver' => 'MySQLi',
-		'DBPrefix' => '',
-		'pConnect' => false,
-		'DBDebug'  => (ENVIRONMENT !== 'production'),
-		'charset'  => 'utf8',
-		'DBCollat' => 'utf8_general_ci',
-		'swapPre'  => '',
-		'encrypt'  => false,
-		'compress' => false,
-		'strictOn' => false,
-		'failover' => [],
-		'port'     => 3306,
+	 	'hostname' => 'localhost',
+	 	'username' => 'root',
+	 	'password' => '47293202axel',
+	 	'database' => 'prueba',
+	 	'DBDriver' => 'MySQLi',
+	 	'DBPrefix' => '',
+	 	'pConnect' => false,
+	 	'DBDebug'  => (ENVIRONMENT !== 'production'),
+	 	'charset'  => 'utf8',
+	 	'DBCollat' => 'utf8_general_ci',
+	 	'swapPre'  => '',
+	 	'encrypt'  => false,
+	 	'compress' => false,
+	 	'strictOn' => false,
+	 	'failover' => [],
+	 	'port'     => 3306,
 	];
 	/**
 	 * This database connection is used when

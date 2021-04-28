@@ -25,7 +25,9 @@ class EnvioModel extends Model {
         $resultado = $this->db->query("SELECT env_id, usu_nombre, usu_apellido, aero_nombre, env_estatus, env_fechaTentativa, env_fecha, env_fechaEntrega
                                         FROM $this->table
                                         JOIN usuarios ON env_idUsuario = usu_id
-                                        JOIN aeropuertos ON env_idAeropuerto = aero_id");
+                                        JOIN aeropuertos ON env_idAeropuerto = aero_id
+                                        ORDER BY env_id DESC
+                                        ");
         return $resultado->getResult();
     }
 
@@ -51,7 +53,8 @@ class EnvioModel extends Model {
     }
 
     public function updateEstado($id){
-        $query = "UPDATE ".$this->table." SET env_estatus=1 WHERE env_id=?";
+        $fechaEntrega = date("Y-m-d");        
+        $query = "UPDATE ".$this->table." SET env_estatus=1, env_fechaEntrega = '$fechaEntrega' WHERE env_id=?";
         $resultado= $this->db->query($query,[$id]);
         return $resultado;
     }

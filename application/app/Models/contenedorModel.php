@@ -22,7 +22,7 @@ class ContenedorModel extends Model {
 
     public function getAll(){
 
-        $resultado = $this->db->query("SELECT * FROM $this->table");
+        $resultado = $this->db->query("SELECT * FROM $this->table ORDER BY cont_id DESC");
         return $resultado->getResult();
     }
 

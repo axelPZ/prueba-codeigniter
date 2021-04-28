@@ -25,7 +25,7 @@
                         <td><?php echo $envio->env_fechaTentativa?></td>
                         <td><?php echo $envio->env_fechaEntrega?></td>
                         <td><?php echo $envio->env_fecha?></td>
-                        <td><?php echo ($envio->env_estatus == 0 )? 'PENDIENTE': 'ENTREGADO'?></td>
+                        <td><?php if($envio->env_estatus == 0 ):?> <p class='text-danger'> 'PENDIENTE' </p> <?php else:?>  <p class='text-success'> 'ENTREGADO' </p> <?php endif;?> </td>
                         <td><a class="btn btn-outline-success" href="<?php echo base_url()?>/application/EnvioController/detalleEnvio?id=<?php echo $envio->env_id?>" role="button">Ver Detalles</a></td>
                     </tr>
                 

@@ -20,10 +20,14 @@ class UsuarioController extends BaseController
 	//verificar si existe el usuario por el email
 	public function identificarUsuario()
 	{
-		$usuario = new usuarioModel();
+		
+		$usuario = new UsuarioModel();
 		$email = trim(strtoupper($_POST['email']));
+		
+		echo "$email";
 		$usuarioResult = $usuario->getByEmail($email);
-
+		
+	
 		if($usuarioResult)
 		{
 			$datos = [
@@ -43,7 +47,7 @@ class UsuarioController extends BaseController
 
 	public function loginPassword(){
 
-		$usuario = new usuarioModel();
+		$usuario = new UsuarioModel();
 
 		$usuario->usu_email = trim(strtoupper($_POST['email']));
 		$usuario->usu_password = trim($_POST['pass']);
@@ -88,7 +92,7 @@ class UsuarioController extends BaseController
 	//registrar el usuario
 	public function registrarUsuario(){
 
-		$usuario = new usuarioModel();
+		$usuario = new UsuarioModel();
 
 		$usuario->usu_nombre = trim(strtoupper($_POST['name']));
 		$usuario->usu_apellido = trim(strtoupper($_POST['surname']));
